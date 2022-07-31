@@ -1,0 +1,207 @@
+$sc-mobile: 767px;
+
+#fluentu-sticky-language{
+
+  font-size: 18px;
+  padding: 30px 2.5%;
+  box-shadow: inset 0 0 12px 0 rgb(0 0 0 / 25%);
+  background: #fff;
+  width: 100%;
+
+  .lang-container{
+    display: flex;
+    max-width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .text-langs{
+      width: 255px;
+      padding-right: 20px;
+
+      .lang-group-head{
+        .lang-title{
+          font-size: 27px;
+          font-weight: bold;
+          line-height: normal;
+          letter-spacing: -0.25px;
+          color: #000;
+          margin:0;
+          margin-bottom: 12px;
+        }
+        .lang-subtitle{
+          font-size: 18px;
+          font-weight: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: -0.17px;
+          color: #000;
+        }
+
+      }
+      .lang-subtitle-sticky{
+        font-size: 14px;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: -0.13px;
+        color: #000;
+        display: none;
+        margin-bottom: 11px;
+      }
+    }
+
+    .fluentu-list-langs{
+      width: calc(100% - 255px);
+      display: flex;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+
+      .lang-item{
+
+        padding: 0 20px;
+        text-align: center;
+        display: block;
+        text-decoration: none;
+
+        .image{
+          border: 4px solid #e4e5e7;
+          width: 68px;
+          height: 68px;
+          border-radius: 50%;
+          overflow: hidden;
+          img{
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+
+        .list-group-item-text{
+          font-size: 14px;
+          font-weight: 600;
+          line-height: normal;
+          letter-spacing: -0.13px;
+          text-align: center;
+          color: #000;
+          margin: 0;
+          margin-top: 8px;
+        }
+
+
+      }
+
+      .icon-more{
+        width: 66px;
+        height: 66px;
+        background: #3994ff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        .plus{
+          width: 27px;
+          height: 5px;
+          border-radius: 2.5px;
+          background-color: #fff;
+          display: inline-block;
+          position: absolute;
+          &:last-child{
+            transform-origin: 50%;
+            transform: rotate(90deg);
+          }
+        }
+      }
+
+    }
+
+  }
+
+  &.style-2{
+
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    animation: tagDropdownSticky .5s;
+    -webkit-animation: tagDropdownSticky .5s; /* Safari 4+ */
+    -moz-animation:    tagDropdownSticky .5s; /* Fx 5+ */
+    -o-animation:      tagDropdownSticky .5s; /* Opera 12+ */
+
+    .lang-container{
+      display: block;
+
+      .text-langs{
+
+        width: 100%;
+
+        .lang-group-head{
+            display: none;
+        }
+        .lang-subtitle-sticky{
+
+            display: block;
+
+        }
+      }
+
+      .fluentu-list-langs{
+
+        width: 100%;
+
+        .lang-item{
+          padding: 5px 8px;
+          border: solid 1px #cbcbcb;
+          background-color: #fff;
+          display: flex;
+          align-items: center;
+
+          &:not(:last-child){
+            margin-right: 12px;
+          }
+
+          .image{
+            border: none;
+            width: 20px;
+            height: 20px;
+            img{
+              width: 20px;
+              height: 20px;
+            }
+          }
+
+          .list-group-item-text{
+            white-space: nowrap;
+            margin: 0;
+            padding-left: 12px;
+          }
+
+          &.lang-more{
+            display: none;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+@keyframes tagDropdownSticky {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: none;
+  }
+}
