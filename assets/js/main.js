@@ -45,7 +45,7 @@
    ];
 
    let width = $(window).width();
-   let classF = (width <= 767) ? 'style-2' : '';
+   let classF = (width <= 1061) ? 'style-2' : '';
 
    const $moreLink = settings.genaral.fluentu_field_link_more ? moreArr.map(More).join('') : '';
 
@@ -62,7 +62,7 @@
 
     addEventListener('resize', (event) => {
         width = $(window).width();
-        if(width <= 767){
+        if(width <= 1061){
           $('#fluentu-sticky-language').addClass('style-2');
         }else{
           $('#fluentu-sticky-language').removeClass('style-2');
@@ -79,7 +79,7 @@
       var scroll = $(window).scrollTop();
       if (scroll > 220) {
         $sticky.addClass('style-2');
-      } else if(width > 767){
+      } else if(width > 1061){
         $sticky.removeClass('style-2');
       }
     }
