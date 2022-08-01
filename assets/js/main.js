@@ -11,8 +11,8 @@
         <div class="lang-subtitle-sticky">${subtitle2}</div>
    `;
 
-   const Item = ({ icon, name, url }) => `
-        <a href="${url}" class="lang-item">
+   const Item = ({ icon, name, url }, index) => `
+        <a href="${url}" class="lang-item ${ index > 5 ? 'lang-more-sticky' : ''}">
           <div class="image">
             <img src="${icon}" />
           </div>
@@ -77,12 +77,40 @@
     //function run fixed lang
     function fixedLanguages(){
       var scroll = $(window).scrollTop();
-      if (scroll > 200) {
+      if (scroll > 220) {
         $sticky.addClass('style-2');
       } else if(width > 767){
         $sticky.removeClass('style-2');
       }
     }
+
+    const slider = document.querySelector('.fluentu-list-langs');
+    let mouseDown = false;
+    let startX, scrollLeft;
+
+    let startDragging = function (e) {
+      mouseDown = true;
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    };
+    let stopDragging = function (event) {
+      mouseDown = false;
+    };
+
+    slider.addEventListener('mousemove', (e) => {
+      e.preventDefault();
+      if(!mouseDown) { return; }
+      const x = e.pageX - slider.offsetLeft;
+      const scroll = x - startX;
+      slider.scrollLeft = scrollLeft - scroll;
+    });
+
+    // Add the event listeners
+    slider.addEventListener('mousedown', startDragging, false);
+    slider.addEventListener('mouseup', stopDragging, false);
+    slider.addEventListener('mouseleave', stopDragging, false);
+
+
   });
 
 })(jQuery);
